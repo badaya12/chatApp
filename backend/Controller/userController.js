@@ -66,7 +66,7 @@ const loginUser = async(req,res) =>{
         if(!isValidPassword) return res.status(400).json("Invalid email or password.");
         
         const token = createToken(user._id);
-        res.status(200).json({_id: user._id, name: user.name, email, token});
+        res.status(200).json({_id: user._id, name: user.name, email, token,status:user.status});
         
     }catch(error){
         console.log(error);

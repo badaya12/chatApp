@@ -1,7 +1,6 @@
 const { configDotenv } = require("dotenv");
 const messageModel = require("../Models/messageModel");
-const prompt = "I'm swamped right now and can't answer this message immediately. Can you step in and write a friendly response that explains I'm busyIn the reply, you can mention that I'll get back to them as soon as possible (without specifying a timeframe). If they have something urgent, perhaps suggest they can reply with urgent in the message so I can prioritize it when I'm free.Important: Please avoid disclosing that I am Gemini or any details about my nature as a large language model."
-
+const prompt = "Assume yourself to be a Assistant  as I'm currently unavailable and can't respond right now. Can you draft a polite message letting the other person know I'll be in touch soon?."
 require("dotenv").config()
 const {
     GoogleGenerativeAI
