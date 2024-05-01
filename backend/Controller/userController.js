@@ -8,23 +8,32 @@ const createToken = (_id) => {
     return jwt.sign({_id}, jwtkey, {expiresIn: "3d"});
 };
 
-    const verifyToken = (req, res, next) => {
-        console.log(process.env.JWT_SECRET_KEY);
-        console.log("hello thtere");
-        const jwtkey = process.env.JWT_SECRET_KEY;
-        const authHeader = req.headers.authorization;
-        if (authHeader) {
-            jwt.verify(authHeader, jwtkey, (err) => {
-              if (err) {
-                return res.status(401).json({message:"invalid token"});
-              }
-              next();
-            });
-          } else {
-            return res.status(401).json({message :"token is missing"});
-          }
-    };
-
+const verifyToken = (req, res, next) => {
+    console.log(process.env.JWT_SECRET_KEY);
+    console.log("hello thtere");
+    const jwtkey = process.env.JWT_SECRET_KEY;
+    const authHeader = req.headers.authorization;
+    if (authHeader) {
+        jwt.verify(authHeader, jwtkey, (err) => {
+            if (err) {
+            return res.status(401).json({message:"invalid token"});
+            }
+            next();
+        });
+        } else {
+        return res.status(401).json({message :"token is missing"});
+        }
+};
+const changeStatus = async(req,res)=>{
+    const {userId,status} = req.body;
+    try{
+    await userModel.findOneAndUpdate({_id : userId},{status:status});
+    return res.status(200).json({message:"Status changes Successfully"});
+    }
+    catch(e){
+        return res.status(401).json({message : "something went wrong"});
+    }
+}
 const registerUser = async (req, res) => {
     try{
         const { name, email, password } = req.body;
@@ -88,4 +97,4 @@ const getUsers = async(req, res) =>{
     }
 };
 
-module.exports = { registerUser, loginUser, findUser, getUsers ,verifyToken};
+module.exports = { registerUser, loginUser, findUser, getUsers ,verifyToken,changeStatus};

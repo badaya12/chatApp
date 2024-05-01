@@ -1,8 +1,7 @@
 const { configDotenv } = require("dotenv");
 const messageModel = require("../Models/messageModel");
+const prompt = "I'm swamped right now and can't answer this message immediately. Can you step in and write a friendly response that explains I'm busyIn the reply, you can mention that I'll get back to them as soon as possible (without specifying a timeframe). If they have something urgent, perhaps suggest they can reply with urgent in the message so I can prioritize it when I'm free.Important: Please avoid disclosing that I am Gemini or any details about my nature as a large language model."
 
-// node --version # Should be >= 18
-// npm install @google/generative-ai
 require("dotenv").config()
 const {
     GoogleGenerativeAI
@@ -28,8 +27,28 @@ const createMessage = async(req,res) =>{
     }
 };
 
+const getHistory = async({chatId,senderId})=>{
 
-//getMessages
+    // const chat = await chatModel.findOne({
+    //     members:{$all:[senderId,receipentId]},
+    // });
+
+    const messages = await messageModel.find({chatId : chatId }).sort({ createdAt: -1 }).limit(5);
+
+    const history = messages.map((message)=>{
+        let role = ""; 
+        if(senderId === message.senderId)
+        role = "user"
+        else
+        role = "model"
+        return {
+            role : role,
+            parts : [{text : message.text}]
+        }
+    })
+
+    return history;
+}
 
 const getMessages = async(req,res)=>{
     const {chatId} = req.params;
@@ -44,10 +63,12 @@ const getMessages = async(req,res)=>{
     }
 };
 
-const getGenerativeResponse = async(req,res)=>{
-  const {history,userMessage} = req.body;
+const getGenerativeResponse = async({senderId,receipentId,message,chatId})=>{
+
+  const history = await getHistory(chatId,senderId);
   console.log(history);
   try{
+    console.log(API_KEY);
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
     
@@ -57,16 +78,18 @@ const getGenerativeResponse = async(req,res)=>{
         generationConfig: {
           maxOutputTokens: 100,
         },
+        prompt : prompt
       });
     
-      const result = await chat.sendMessage(userMessage);
+      const result = await chat.sendMessage(message);
       const response =  result.response;
       const text = response.text();
       console.log(text);
-    return res.status(200).json(response);
+    return text;
   }     
   catch(error){
-    res.status(500).json(error);
+    console.log(error);
+   return error;
   }
 }
 
