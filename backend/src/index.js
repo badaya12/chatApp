@@ -11,24 +11,27 @@ const userModel = require("../Models/userModel");
 const { getGenerativeResponse, getMessages } = require("../Controller/messageController");
 const messageModel = require("../Models/messageModel");
 const server = http.createServer(app);
+require("dotenv").config();
 const io = new Server(server,{
     cors:{
-        origin : "http://localhost:5173",
+        origin : process.env.FRONTEND_URL,
         methods : ["GET","POST"]
     }
 });
+//websocket and express server both running on same port
 
-require("dotenv").config();
+//middleware
 app.use(express.json());
 app.use(cors({
-    origin : "http://localhost:5173"
+    origin : process.env.FRONTEND_URL
 }));
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+//different endpoints 
 app.use("/api/users",userRoute);
 app.use("/api/chats",chatRoute);
 app.use("/api/messages",messageRoute);
