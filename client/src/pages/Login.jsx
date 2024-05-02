@@ -15,11 +15,10 @@ const Login = () => {
             <Col xs={6}>
                 <Stack gap={3}>
                     <h2 align="center">Login</h2>
-                    <Form.Control  placeholder="Email" onChange={(e)=> updateLoginInfo({ ...loginInfo,email:e.target.value})}/>
+                    <Form.Control   placeholder="Email" onChange={(e)=> updateLoginInfo({ ...loginInfo,email:e.target.value})}/>
                     <Form.Control  placeholder="Password" onChange={(e)=>updateLoginInfo({...loginInfo, password:e.target.value})} />
                     <Button variant="primary" type="submit">{isLoginLoading?"Logging in":"Login"}</Button>
                     {loginError?.error && <Alert variant="danger"><p>{loginError?.message}</p></Alert>}
-                    
                 </Stack>
             </Col>
         </Row>

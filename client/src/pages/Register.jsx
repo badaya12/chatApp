@@ -18,7 +18,7 @@ const Register = () => {
                         <h2 align="center">Register</h2>
                         <Form.Control type="text" placeholder="Name" onChange={(e)=>updateRegisterInfo({...registerInfo,name:e.target.value})}/>
                         <Form.Control  placeholder="Email" onChange={(e)=>updateRegisterInfo({...registerInfo,email:e.target.value})}/>
-                        <Form.Control  placeholder="Password" onChange={(e)=>updateRegisterInfo({...registerInfo,password:e.target.value})}/>
+                        <Form.Control   placeholder="Password" onChange={(e)=>updateRegisterInfo({...registerInfo,password:e.target.value})}/>
                         <Button variant="primary" type="submit">
                             {isRegisterLoading?"Creating your Account":"Register"}
                         </Button>

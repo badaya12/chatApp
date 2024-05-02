@@ -55,10 +55,15 @@ const getMessages = async(req,res)=>{
     const limit=req.query.limit || 10;
 
     try{
-        const messages = await messageModel.find({
+         await messageModel.find({
             chatId : chatId
-        }).sort({'createdAt':'desc'}).limit(limit).skip(startIndex);
-        res.status(200).json(messages);
+        }).sort({'createdAt':'desc'}).limit(limit).skip(startIndex).then(results => {
+            // Reverse the results array to get the original order
+            const reversedResults = results.reverse();
+            res.status(200).json(reversedResults);
+            // Further processing with the reversed results
+        })
+        
     }catch(error){
         console.log(error);
         res.status(500).json(error);
