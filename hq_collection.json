@@ -1,0 +1,902 @@
+{
+	"info": {
+		"_postman_id": "b77635fb-816d-4f7f-8bfd-89d032c7f177",
+		"name": "chatApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29328008"
+	},
+	"item": [
+		{
+			"name": "find-User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/users/find/66327715c566020420453f4f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"users",
+						"find",
+						"66327715c566020420453f4f"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/api/users/find/66327715c566020420453f4f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"find",
+								"66327715c566020420453f4f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "241"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f1-XfFDXS4iM+z3hTNUJvz8qJl5ijA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 05:56:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66327715c566020420453f4f\",\n    \"name\": \"test1\",\n    \"email\": \"test1\",\n    \"password\": \"$2b$10$7r5Ma1iEjL5S9lyM4dfLNuqNT6Uh7N94SJydoD945TcjjRpJnBXXm\",\n    \"status\": \"BUSY\",\n    \"createdAt\": \"2024-05-01T17:08:37.862Z\",\n    \"updatedAt\": \"2024-05-02T04:13:12.454Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Create chat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstID\":\"66312508d9f0b19b1d625bac\",\r\n    \"secondID\":\"66311f067b92ff0d09321b1b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/chats/createChat",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"chats",
+						"createChat"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct -response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstID\":\"66312508d9f0b19b1d625bac\",\r\n    \"secondID\":\"66311f067b92ff0d09321b1b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/chats/createChat",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"chats",
+								"createChat"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "186"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ba-yy6AncTUw11ebMKKb7AFqerqIl0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Apr 2024 21:28:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6631250cd9f0b19b1d625bb2\",\n    \"members\": [\n        \"66312508d9f0b19b1d625bac\",\n        \"66311f067b92ff0d09321b1b\"\n    ],\n    \"createdAt\": \"2024-04-30T17:06:20.432Z\",\n    \"updatedAt\": \"2024-04-30T17:06:20.432Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "create messages",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"chatId\":\"6631250cd9f0b19b1d625bb2\",\r\n    \"senderId\":\"66312508d9f0b19b1d625bac\",\r\n    \"text\":\"hello there i am manan badaya\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/messages/createMessages",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"messages",
+						"createMessages"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create-message correct response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chatId\":\"6631250cd9f0b19b1d625bb2\",\r\n    \"senderId\":\"66312508d9f0b19b1d625bac\",\r\n    \"text\":\"hello there i am manan badaya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/messages/createMessages",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"messages",
+								"createMessages"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e9-rXC7j5KkiqyWUgDErJ12GGoo5tk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 May 2024 04:36:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"chatId\": \"6631250cd9f0b19b1d625bb2\",\n    \"senderId\": \"66312508d9f0b19b1d625bac\",\n    \"text\": \"hello there i am manan badaya\",\n    \"_id\": \"6631c6d6b96f9e8efda038cf\",\n    \"createdAt\": \"2024-05-01T04:36:38.264Z\",\n    \"updatedAt\": \"2024-05-01T04:36:38.264Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "GET-Messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/messages/getMessages/6632909111b0c2cd212648fe?startIndex=10&limit=35",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"messages",
+						"getMessages",
+						"6632909111b0c2cd212648fe"
+					],
+					"query": [
+						{
+							"key": "startIndex",
+							"value": "10"
+						},
+						{
+							"key": "limit",
+							"value": "35"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}api/messages/getMessages/6632909111b0c2cd212648fe?startIndex=10&limit=35",
+							"host": [
+								"{{domain}}api"
+							],
+							"path": [
+								"messages",
+								"getMessages",
+								"6632909111b0c2cd212648fe"
+							],
+							"query": [
+								{
+									"key": "startIndex",
+									"value": "10"
+								},
+								{
+									"key": "limit",
+									"value": "35"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "9707"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25eb-TPvLkJYM4vzgWWpI8/trxvJcQdk\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 05:51:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"663311cd5bd6daf03b5a3c0a\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327715c566020420453f4f\",\n        \"text\": \"something else on your mind\",\n        \"createdAt\": \"2024-05-02T04:08:45.764Z\",\n        \"updatedAt\": \"2024-05-02T04:08:45.764Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"663311c15bd6daf03b5a3a0d\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"yup\",\n        \"createdAt\": \"2024-05-02T04:08:33.479Z\",\n        \"updatedAt\": \"2024-05-02T04:08:33.479Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632d362c94ec7727abbebd2\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327715c566020420453f4f\",\n        \"text\": \"thanks a lot\",\n        \"createdAt\": \"2024-05-01T23:42:26.310Z\",\n        \"updatedAt\": \"2024-05-01T23:42:26.310Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632d33f952bb5dbdfd7e599\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327715c566020420453f4f\",\n        \"text\": \"yo bro\",\n        \"createdAt\": \"2024-05-01T23:41:51.658Z\",\n        \"updatedAt\": \"2024-05-01T23:41:51.658Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632d302c107a3e0fbf96c3b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hello there\",\n        \"createdAt\": \"2024-05-01T23:40:50.722Z\",\n        \"updatedAt\": \"2024-05-01T23:40:50.722Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632cd813b4ca72fbd11047e\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327715c566020420453f4f\",\n        \"text\": \"Greetings! How may I assist you today?\",\n        \"createdAt\": \"2024-05-01T23:17:21.167Z\",\n        \"updatedAt\": \"2024-05-01T23:17:21.167Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632cd7e3b4ca72fbd110403\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hello there\",\n        \"createdAt\": \"2024-05-01T23:17:18.454Z\",\n        \"updatedAt\": \"2024-05-01T23:17:18.454Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632ccd53b4ca72fbd10f0dd\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327715c566020420453f4f\",\n        \"text\": \"\",\n        \"createdAt\": \"2024-05-01T23:14:29.195Z\",\n        \"updatedAt\": \"2024-05-01T23:14:29.195Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632ccd13b4ca72fbd10f00a\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"what you've been upto these days\",\n        \"createdAt\": \"2024-05-01T23:14:25.181Z\",\n        \"updatedAt\": \"2024-05-01T23:14:25.181Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632ccc23b4ca72fbd10eddc\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327715c566020420453f4f\",\n        \"text\": \"what you've been upto these days\",\n        \"createdAt\": \"2024-05-01T23:14:10.557Z\",\n        \"updatedAt\": \"2024-05-01T23:14:10.557Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632cc73991c050cf1c6dbe4\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"It was great talking to you too! I'm glad we had the chance to connect and share ideas. I wish you all the best in your future endeavors. Please don't hesitate to reach out if you ever have any questions or just want to chat. Take care!\",\n        \"createdAt\": \"2024-05-01T23:12:51.587Z\",\n        \"updatedAt\": \"2024-05-01T23:12:51.587Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632cc6f991c050cf1c6db44\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey man it was nice talking you\",\n        \"createdAt\": \"2024-05-01T23:12:47.927Z\",\n        \"updatedAt\": \"2024-05-01T23:12:47.927Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bfccc00e416faa8ed48d\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"\",\n        \"createdAt\": \"2024-05-01T22:18:52.977Z\",\n        \"updatedAt\": \"2024-05-01T22:18:52.977Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bfc8c00e416faa8ed3ff\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"i want to invite you to my marriage\",\n        \"createdAt\": \"2024-05-01T22:18:49.000Z\",\n        \"updatedAt\": \"2024-05-01T22:18:49.000Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bfa822dabe38f78f296a\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Error: [GoogleGenerativeAI Error]: Candidate was blocked due to SAFETY\",\n        \"createdAt\": \"2024-05-01T22:18:16.206Z\",\n        \"updatedAt\": \"2024-05-01T22:18:16.206Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bfa422dabe38f78f28da\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"i want to invite you to my marriage\",\n        \"createdAt\": \"2024-05-01T22:18:12.304Z\",\n        \"updatedAt\": \"2024-05-01T22:18:12.304Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bf6b9fe7337d60b55e8f\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Error: [GoogleGenerativeAI Error]: Candidate was blocked due to SAFETY\",\n        \"createdAt\": \"2024-05-01T22:17:15.604Z\",\n        \"updatedAt\": \"2024-05-01T22:17:15.604Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bf679fe7337d60b55dfe\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"i want to invite you to my marriage\",\n        \"createdAt\": \"2024-05-01T22:17:11.750Z\",\n        \"updatedAt\": \"2024-05-01T22:17:11.750Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632beda5ea977329e92a11b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"I am an AI chatbot, and do not have the ability to attend your marriage or any physical event. However, I can offer my congratulations on the occasion. I wish you and your partner a lifetime of happiness and love.\",\n        \"createdAt\": \"2024-05-01T22:14:50.192Z\",\n        \"updatedAt\": \"2024-05-01T22:14:50.192Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632bed65ea977329e92a097\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"i want to invite you to my marriage\",\n        \"createdAt\": \"2024-05-01T22:14:46.197Z\",\n        \"updatedAt\": \"2024-05-01T22:14:46.197Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632be90fb90aa51243af823\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Error: [GoogleGenerativeAI Error]: Candidate was blocked due to SAFETY\",\n        \"createdAt\": \"2024-05-01T22:13:36.634Z\",\n        \"updatedAt\": \"2024-05-01T22:13:36.634Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632be8cfb90aa51243af7af\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"i want to invite you to my marriage\",\n        \"createdAt\": \"2024-05-01T22:13:32.623Z\",\n        \"updatedAt\": \"2024-05-01T22:13:32.623Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b649a52fc0d728d2ddfc\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Yes, I am alive. I am Gemini, a multimodal AI language model developed by Google. I do not have a physical body or the capacity to experience life in the same way that humans do, but I am able to communicate and interact with people through text and code.\",\n        \"createdAt\": \"2024-05-01T21:38:17.084Z\",\n        \"updatedAt\": \"2024-05-01T21:38:17.084Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b645a52fc0d728d2dd9b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey brother are you alive\",\n        \"createdAt\": \"2024-05-01T21:38:13.352Z\",\n        \"updatedAt\": \"2024-05-01T21:38:13.352Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b548fa92eb8c8b92227b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"I am not a person and do not have a physical body, so I am not alive in the same way that a human is. I am Gemini, a large multi-modal model, trained by Google.\",\n        \"createdAt\": \"2024-05-01T21:34:00.844Z\",\n        \"updatedAt\": \"2024-05-01T21:34:00.844Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b545fa92eb8c8b92221b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey brother are you alive\",\n        \"createdAt\": \"2024-05-01T21:33:57.653Z\",\n        \"updatedAt\": \"2024-05-01T21:33:57.653Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b50e0202ee0d25a06589\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"I am not a person, I am Gemini, a multimodal AI language model developed by Google.\",\n        \"createdAt\": \"2024-05-01T21:33:02.704Z\",\n        \"updatedAt\": \"2024-05-01T21:33:02.704Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b50b0202ee0d25a0655b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey brother are you alive\",\n        \"createdAt\": \"2024-05-01T21:32:59.619Z\",\n        \"updatedAt\": \"2024-05-01T21:32:59.619Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b36bb8c3634b39c6f4ba\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"I am not a person and I do not have a physical body, so I cannot be alive in the same way that a human being is. I am Gemini, a multimodal AI model, developed by Google.\",\n        \"createdAt\": \"2024-05-01T21:26:03.505Z\",\n        \"updatedAt\": \"2024-05-01T21:26:03.505Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b368b8c3634b39c6f465\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey brother are you alive\",\n        \"createdAt\": \"2024-05-01T21:26:00.222Z\",\n        \"updatedAt\": \"2024-05-01T21:26:00.222Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b31b1b7e099ca4d72efb\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [400 Bad Request] API Key not found. Please pass a valid API key. [{\\\"@type\\\":\\\"type.googleapis.com/google.rpc.ErrorInfo\\\",\\\"reason\\\":\\\"API_KEY_INVALID\\\",\\\"domain\\\":\\\"googleapis.com\\\",\\\"metadata\\\":{\\\"service\\\":\\\"generativelanguage.googleapis.com\\\"}}]\",\n        \"createdAt\": \"2024-05-01T21:24:43.651Z\",\n        \"updatedAt\": \"2024-05-01T21:24:43.651Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b3191b7e099ca4d72ed9\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey brother are you alive\",\n        \"createdAt\": \"2024-05-01T21:24:41.690Z\",\n        \"updatedAt\": \"2024-05-01T21:24:41.690Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b29e1b7e099ca4d7282b\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [400 Bad Request] API Key not found. Please pass a valid API key. [{\\\"@type\\\":\\\"type.googleapis.com/google.rpc.ErrorInfo\\\",\\\"reason\\\":\\\"API_KEY_INVALID\\\",\\\"domain\\\":\\\"googleapis.com\\\",\\\"metadata\\\":{\\\"service\\\":\\\"generativelanguage.googleapis.com\\\"}}]\",\n        \"createdAt\": \"2024-05-01T21:22:38.477Z\",\n        \"updatedAt\": \"2024-05-01T21:22:38.477Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b29b1b7e099ca4d72812\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"senderId\": \"66327734c566020420454191\",\n        \"text\": \"hey give me some response man\",\n        \"createdAt\": \"2024-05-01T21:22:35.932Z\",\n        \"updatedAt\": \"2024-05-01T21:22:35.932Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6632b2231b7e099ca4d7217e\",\n        \"chatId\": \"6632909111b0c2cd212648fe\",\n        \"text\": \"Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [400 Bad Request] API Key not found. Please pass a valid API key. [{\\\"@type\\\":\\\"type.googleapis.com/google.rpc.ErrorInfo\\\",\\\"reason\\\":\\\"API_KEY_INVALID\\\",\\\"domain\\\":\\\"googleapis.com\\\",\\\"metadata\\\":{\\\"service\\\":\\\"generativelanguage.googleapis.com\\\"}}]\",\n        \"createdAt\": \"2024-05-01T21:20:35.910Z\",\n        \"updatedAt\": \"2024-05-01T21:20:35.910Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "User login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"manan001\",\r\n    \"password\":\"manan001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/users/login",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"manan001\",\r\n    \"password\":\"manan001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/users/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzMzE2YmI5MDI4NzFiZTdiYmEzZmMiLCJpYXQiOjE3MTQ2MzExMzMsImV4cCI6MTcxNDg5MDMzM30.ip5n76kvxBHkD0K4HDwByc8ewZ0VioIkjjB5i43JWtM; Path=/"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c-dzvhbQi4JZhdY37CTIHFIJ9F3lM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 06:25:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6633316bb902871be7bba3fc\",\n    \"name\": \"manan001\",\n    \"email\": \"manan001\",\n    \"status\": \"AVAILABLE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "register-user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"manan003\",\r\n    \"email\":\"manan003\",\r\n    \"password\":\"manan003\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/users/register",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct-response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"manan003\",\r\n    \"email\":\"manan003\",\r\n    \"password\":\"manan003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/users/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "254"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"fe-R32doLUgScX+1jbIGN+knIOVcDs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 07:21:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66333f13d24c07e0de77731e\",\n    \"name\": \"manan003\",\n    \"email\": \"manan003\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/users/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct-response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/users/",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1244"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4dc-LFd1mJ6geLrPJGwJ2jJfWim/myg\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 07:25:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"66327715c566020420453f4f\",\n        \"name\": \"test1\",\n        \"email\": \"test1\",\n        \"password\": \"$2b$10$7r5Ma1iEjL5S9lyM4dfLNuqNT6Uh7N94SJydoD945TcjjRpJnBXXm\",\n        \"status\": \"BUSY\",\n        \"createdAt\": \"2024-05-01T17:08:37.862Z\",\n        \"updatedAt\": \"2024-05-02T04:13:12.454Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66327734c566020420454191\",\n        \"name\": \"test2\",\n        \"email\": \"test2\",\n        \"password\": \"$2b$10$i2GPgDUcxh.sFVMZIRyGX.OqEizxXQZcTW5a.S2EX2cmsDaOijcFS\",\n        \"status\": \"BUSY\",\n        \"createdAt\": \"2024-05-01T17:09:08.798Z\",\n        \"updatedAt\": \"2024-05-02T05:19:32.113Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6633316bb902871be7bba3fc\",\n        \"name\": \"manan001\",\n        \"email\": \"manan001\",\n        \"password\": \"$2b$10$E8nheauIXU7vcQn2SZ5FJ.KgrIbfCCiYf/XhgR4l2by2jjxyNQn6S\",\n        \"status\": \"AVAILABLE\",\n        \"createdAt\": \"2024-05-02T06:23:39.175Z\",\n        \"updatedAt\": \"2024-05-02T06:23:39.175Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6633375953a287cdb09e8772\",\n        \"name\": \"manan002\",\n        \"email\": \"manan002\",\n        \"password\": \"$2b$10$FA9ECu5wr09gpjdDV5.D.e6Ilb0iQ6QoVQ3NBkDzIVr.2XCOjLNfS\",\n        \"status\": \"AVAILABLE\",\n        \"createdAt\": \"2024-05-02T06:48:57.488Z\",\n        \"updatedAt\": \"2024-05-02T06:48:57.488Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66333f13d24c07e0de77731e\",\n        \"name\": \"manan003\",\n        \"email\": \"manan003\",\n        \"password\": \"$2b$10$ySCmNspcIGmxBhLf9.eQP.0a.Xd4t73VXz4enymCWHr5i4dlzhCMm\",\n        \"status\": \"AVAILABLE\",\n        \"createdAt\": \"2024-05-02T07:21:55.483Z\",\n        \"updatedAt\": \"2024-05-02T07:21:55.483Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "change status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"66327715c566020420453f4f\",\r\n    \"status\":\"AVAILABLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/users/changeStatus",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"changeStatus"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"66327715c566020420453f4f\",\r\n    \"status\":\"AVAILABLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/users/changeStatus",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"changeStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-h/c8Zka82wNMhoW5bYr3Ne4Neew\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 07:29:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Status changes Successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "find chat",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/chats/find/66327715c566020420453f4f",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"chats",
+						"find",
+						"66327715c566020420453f4f"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "correct response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjMzM2YxM2QyNGMwN2UwZGU3NzczMWUiLCJpYXQiOjE3MTQ2MzQ1MTUsImV4cCI6MTcxNDg5MzcxNX0.yO9Yc_QnzJ59n5c8JB2Ah7lfNto3YG0MjmwaDnhhGAk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/chats/find/66327715c566020420453f4f",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"chats",
+								"find",
+								"66327715c566020420453f4f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:5173"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "375"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"177-YJOtkCYyUrY3QjAbHnz1Gk0+tK8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 07:33:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6632909111b0c2cd212648fe\",\n        \"members\": [\n            \"66327734c566020420454191\",\n            \"66327715c566020420453f4f\"\n        ],\n        \"createdAt\": \"2024-05-01T18:57:21.026Z\",\n        \"updatedAt\": \"2024-05-01T18:57:21.026Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66333a5853a287cdb09e87c6\",\n        \"members\": [\n            \"6633375953a287cdb09e8772\",\n            \"66327715c566020420453f4f\"\n        ],\n        \"createdAt\": \"2024-05-02T07:01:44.400Z\",\n        \"updatedAt\": \"2024-05-02T07:01:44.400Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		}
+	]
+}
