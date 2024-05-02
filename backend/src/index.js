@@ -25,6 +25,7 @@ app.use(express.json());
 app.use(cors({
     origin : process.env.FRONTEND_URL
 }));
+const standardMessage = "I'll be here with you shortly";
 // app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
 //     res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
@@ -40,7 +41,7 @@ const port = 5001;
 const uri = process.env.DATABASE_URL;
 
 let onlineUsers = [];
-
+//users that are online are stored in this pool and when they it goes offline it is removed from there itself
 
 io.on("connection", (socket) => {
   console.log("New Connection",socket.id);
@@ -61,24 +62,37 @@ io.on("connection", (socket) => {
       io.to(user.socketId).emit("getMessage",message);
     }
     else
-    {const receipent = await userModel.findOne({_id : message.recipientId})
+    {//if the recipient is busy and offline then generative response will be generated 
+      const receipent = await userModel.findOne({_id : message.recipientId})
       if(receipent.status === "BUSY")
-       {
-        console.log(message);
-        let reply = await getGenerativeResponse(
-        {senderId : message.senderId,
-        receipentId : message.recipientId,
-        message : message.text,
-        chatId : message.chatId});
+       {let response;
+      
+        try {
+            response = await Promise.race([
+                getGenerativeResponse({
+                    senderId: message.senderId,
+                    receipentId: message.recipientId,
+                    message: message.text,
+                    chatId: message.chatId
+                }),
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve(standardMessage);
+                    }, 10000); // 10 seconds timeout
+                })
+            ]);
+        } catch (error) {
+            response = standardMessage; // Handle error if getGenerativeResponse fails
+        }
 
         const newMessage = new messageModel({
-            text : reply,
+            text : response,
             senderId : message.recipientId,
             chatId : message.chatId
         });
-        
-        const response = await newMessage.save();
-    io.to(socket.id).emit("getMessage",response);}}
+
+        const savedDocs = await newMessage.save();
+    io.to(socket.id).emit("getMessage",savedDocs);}}
   });
 
   //listen to a disconnection
