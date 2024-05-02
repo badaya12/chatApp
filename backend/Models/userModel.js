@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
 
-const UserStatus = Object.freeze({
-    AVAILABLE: 'AVAILABLE',
-    BUSY: 'BUSY'
-});
 
 const userSchema = new mongoose.Schema({
     name:{type: String, required: true, minlength : 3, maxlength: 30},

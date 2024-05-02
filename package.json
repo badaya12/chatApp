@@ -2,6 +2,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.9.0",
     "axios": "^1.6.8",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "validator": "^13.11.0"
   }
 }
