@@ -31,7 +31,7 @@ app.use(cors({
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
 //   });
-//different endpoints 
+//different
 app.use("/api/users",userRoute);
 app.use("/api/chats",chatRoute);
 app.use("/api/messages",messageRoute);
@@ -64,6 +64,7 @@ io.on("connection", (socket) => {
     {const receipent = await userModel.findOne({_id : message.recipientId})
       if(receipent.status === "BUSY")
        {
+        console.log(message);
         let reply = await getGenerativeResponse(
         {senderId : message.senderId,
         receipentId : message.recipientId,

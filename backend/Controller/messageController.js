@@ -51,10 +51,13 @@ const getHistory = async({chatId,senderId})=>{
 
 const getMessages = async(req,res)=>{
     const {chatId} = req.params;
+    const startIndex=req.query.startIndex || 0;
+    const limit=req.query.limit || 10;
+
     try{
         const messages = await messageModel.find({
-            chatId
-        });
+            chatId : chatId
+        }).sort({'createdAt':'desc'}).limit(limit).skip(startIndex);
         res.status(200).json(messages);
     }catch(error){
         console.log(error);
