@@ -52,7 +52,7 @@ npm run dev
     * Output: `{ message }`
 
 ## Message Routes
-*  **GET** `/api/message/getMessages/:chatId`: Get messages in a chat.
+*  **GET** `/api/message/getMessages/:chatId`: Get messages in a chat.(startIndex and Number of Messages are optional)
    * Output : `Array of message objects`
 * **POST** `/api/message/createMessages/`: Create a new message.
   * Input : `{ chatId, senderId, text }`
