@@ -9,8 +9,8 @@ const createToken = (_id) => {
 };
 
 const verifyToken = (req, res, next) => {
-    console.log(process.env.JWT_SECRET_KEY);
-    console.log("hello thtere");
+    // console.log(process.env.JWT_SECRET_KEY);
+    // console.log("hello thtere");
     const jwtkey = process.env.JWT_SECRET_KEY;
     const authHeader = req.headers.authorization;
     if (authHeader) {
